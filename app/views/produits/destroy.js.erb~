@@ -1,4 +1,0 @@
-$("flash").update("<% flash.each do |name, msg| %><%= escape_javascript(content_tag :div, msg, :id => "flash_#{name}") %><% end %>");
-<% flash.clear %>
-$("flash").blinddown(300);
-Effect.BlindUp("produit_<%= @produit.id %>");

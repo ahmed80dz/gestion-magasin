@@ -1,1 +1,0 @@
-$("produit_<%= @produit.id %>").update("<%= escape_javascript(render(:partial => "form"))%>");
