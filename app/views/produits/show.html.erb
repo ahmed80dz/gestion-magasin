@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Ref:</b>
+  <%= @produit.ref %>
+</p>
+<p>
+  <b>Nom:</b>
+  <%= @produit.nom %>
+</p>
+
+<p>
+  <b>Prix:</b>
+  <%= @produit.prix %>
+</p>
+
+<p>
+  <% if can? :update, @produit %>
+    <%= link_to 'Edit', edit_produit_path(@produit) %> |
+  <% end %>
+  <% if can? :destroy, @produit %>
+    <%= link_to "Destroy", @produit, :method => :delete, :confirm => "Are you sure?" %> |
+  <% end %>
+  <%= link_to 'Back', produits_path %>
+</p>
+
+

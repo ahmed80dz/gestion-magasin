@@ -1,0 +1,3 @@
+class Produit < ActiveRecord::Base
+  validate_presence_of :nom
+end

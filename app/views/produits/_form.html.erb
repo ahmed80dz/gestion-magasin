@@ -1,0 +1,22 @@
+<%= form_for(@produit,:remote => true) do |f| %>
+ <div id= "erreur_produit" style="display:none"></div>
+   <div class="field">
+    <%= f.label "Reference :" %>
+    <%= f.text_field :ref %>
+  </div>
+  <div class="field">
+    <%= f.label "Description :" %>
+    <%= f.text_field :nom %>
+  </div>
+  <div class="field">
+    <%= f.label "Prix :" %>
+    <%= f.text_field :prix %>
+  </div>
+  <div class="actions">
+  <% if @produit.id %>
+    <%= f.submit "Mise a jour" %>
+  <% else %>
+    <%= f.submit "Nouvaux Produit" %>
+  <% end %>
+  </div>
+<% end %>
