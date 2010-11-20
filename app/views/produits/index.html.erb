@@ -1,0 +1,43 @@
+<% content_for :title do %>
+  <%= "List des produits" %>
+<% end %>
+
+<h1><%=  yield(:title) %></h1>
+
+<div id="list_produits">
+<%= form_tag produits_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Recherche", :name => nil %>
+  </p>
+<% end %>
+<%= will_paginate @produits %>
+  <div id="produit_new" class="produit">
+    <%= render :partial => "form" %>
+  </div>
+ <%= render :partial => 'produit', :collection => @produits,:locals => { :div  => true} %>
+
+<br />
+
+<%= link_to 'Nouvaux produit', new_produit_path %>
+ <%= form_for :dump, :url=>'/csv', :html => { :multipart => true } do |f| -%>
+ <table">
+   <tr>
+     <td>
+      <label for="dump_file">
+        Select a CSV File :
+      </label>
+     </td>
+     <td >
+       <%= f.file_field :file -%>
+     </td>
+   </tr>
+   <tr>
+     <td colspan='2'>
+       <%= submit_tag 'Submit' -%>
+     </td>
+   </tr>
+ </table>
+<% end -%>
+
+

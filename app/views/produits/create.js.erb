@@ -1,0 +1,26 @@
+<% if @produit.errors.any? -%>
+  /*Hide the flash notice div*/
+  $("flash").hide(300);
+
+  /*Update the html of the div post_errors with the new one*/
+  $("erreur_produit").update("<%= escape_javascript(error_messages_for(@produit))%>");
+
+  /*Show the div post_errors*/
+  $("erreur_produit").show(300);
+<% else -%>
+  /*Hide the div post_errors*/
+  $("erreur_produit").hide(300);
+
+  /*Update the html of the div flash_notice with the new one*/
+  $("flash").update("<%= escape_javascript(flash[:notice])%>");
+
+  /*Show the flash_notice div*/
+  $("flash").show(300);
+
+  /*Clear the entire form*/
+  /*$(":input:not(input[type=submit])").val("")*/
+
+  /*Replace the html of the div post_lists with the updated new one*/
+  $("produit_new").insert(  {after:"<%= escape_javascript( render(:partial => "produit",:locals => { :produit => @produit}))%>"});
+<% end -%>
+
