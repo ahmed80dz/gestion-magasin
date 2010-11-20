@@ -1,0 +1,654 @@
+[33mcommit 449e701ff9c9f50b80c198c08da28fe25cf97f1f[m
+Author: ounis ahmed <ounis.ahmed@gmail.com>
+Date:   Sat Nov 20 19:54:43 2010 +0100
+
+    Fix CRLF
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2d222c0[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32m.bundle[m
+[32m+[m[32mdb/*.sqlite3[m
+[32m+[m[32mlog/*.log[m
+[32m+[m[32mtmp/**/*[m
+[32m+[m[32m*.*~[m
+\ No newline at end of file[m
+[1mdiff --git a/Gemfile b/Gemfile[m
+[1mnew file mode 100644[m
+[1mindex 0000000..46957f4[m
+[1m--- /dev/null[m
+[1m+++ b/Gemfile[m
+[36m@@ -0,0 +1,36 @@[m
+[32m+[m[32msource 'http://rubygems.org'[m
+[32m+[m
+[32m+[m[32mgem 'rails', '3.0.0'[m
+[32m+[m
+[32m+[m[32m# Bundle edge Rails instead:[m
+[32m+[m[32m# gem 'rails', :git => 'git://github.com/rails/rails.git'[m
+[32m+[m
+[32m+[m[32mgem 'sqlite3-ruby', :require => 'sqlite3'[m
+[32m+[m[32mgem 'populator'[m
+[32m+[m[32mgem "nifty-generators"[m
+[32m+[m[32mgem "acl9"[m
+[32m+[m[32mgem 'devise'[m
+[32m+[m[32mgem "cancan"[m
+[32m+[m[32mgem 'will_paginate', '3.0.pre2'[m
+[32m+[m[32m# Use unicorn as the web server[m
+[32m+[m[32m# gem 'unicorn'[m
+[32m+[m
+[32m+[m[32m# Deploy with Capistrano[m
+[32m+[m[32m# gem 'capistrano'[m
+[32m+[m
+[32m+[m[32m# To use debugger[m
+[32m+[m[32m# gem 'ruby-debug'[m
+[32m+[m
+[32m+[m[32m# Bundle the extra gems:[m
+[32m+[m[32m# gem 'bj'[m
+[32m+[m[32m# gem 'nokogiri'[m
+[32m+[m[32m# gem 'sqlite3-ruby', :require => 'sqlite3'[m
+[32m+[m[32m# gem 'aws-s3', :require => 'aws/s3'[m
+[32m+[m
+[32m+[m[32m# Bundle gems for the local environment. Make sure to[m
+[32m+[m[32m# put test-only gems in this group so their generators[m
+[32m+[m[32m# and rake tasks are available in development mode:[m
+[32m+[m[32m# group :development, :test do[m
+[32m+[m[32m#   gem 'webrat'[m
+[32m+[m[32m# end[m
+[32m+[m
+[1mdiff --git a/Gemfile.lock b/Gemfile.lock[m
+[1mnew file mode 100644[m
+[1mindex 0000000..79182ab[m
+[1m--- /dev/null[m
+[1m+++ b/Gemfile.lock[m
+[36m@@ -0,0 +1,90 @@[m
+[32m+[m[32mGEM[m
+[32m+[m[32m  remote: http://rubygems.org/[m
+[32m+[m[32m  specs:[m
+[32m+[m[32m    abstract (1.0.0)[m
+[32m+[m[32m    acl9 (0.12.0)[m
+[32m+[m[32m    actionmailer (3.0.0)[m
+[32m+[m[32m      actionpack (= 3.0.0)[m
+[32m+[m[32m      mail (~> 2.2.5)[m
+[32m+[m[32m    actionpack (3.0.0)[m
+[32m+[m[32m      activemodel (= 3.0.0)[m
+[32m+[m[32m      activesupport (= 3.0.0)[m
+[32m+[m[32m      builder (~> 2.1.2)[m
+[32m+[m[32m      erubis (~> 2.6.6)[m
+[32m+[m[32m      i18n (~> 0.4.1)[m
+[32m+[m[32m      rack (~> 1.2.1)[m
+[32m+[m[32m      rack-mount (~> 0.6.12)[m
+[32m+[m[32m      rack-test (~> 0.5.4)[m
+[32m+[m[32m      tzinfo (~> 0.3.23)[m
+[32m+[m[32m    activemodel (3.0.0)[m
+[32m+[m[32m      activesupport (= 3.0.0)[m
+[32m+[m[32m      builder (~> 2.1.2)[m
+[32m+[m[32m      i18n (~> 0.4.1)[m
+[32m+[m[32m    activerecord (3.0.0)[m
+[32m+[m[32m      activemodel (= 3.0.0)[m
+[32m+[m[32m      activesupport (= 3.0.0)[m
+[32m+[m[32m      arel (~> 1.0.0)[m
+[32m+[m[32m      tzinfo (~> 0.3.23)[m
+[32m+[m[32m    activeresource (3.0.0)[m
+[32m+[m[32m      activemodel (= 3.0.0)[m
+[32m+[m[32m      activesupport (= 3.0.0)[m
+[32m+[m[32m    activesupport (3.0.0)[m
+[32m+[m[32m    arel (1.0.1)[m
+[32m+[m[32m      activesupport (~> 3.0.0)[m
+[32m+[m[32m    bcrypt-ruby (2.1.2)[m
+[32m+[m[32m    builder (2.1.2)[m
+[32m+[m[32m    cancan (1.4.0)[m
+[32m+[m[32m    devise (1.1.3)[m
+[32m+[m[32m      bcrypt-ruby (~> 2.1.2)[m
+[32m+[m[32m      warden (~> 0.10.7)[m
+[32m+[m[32m    erubis (2.6.6)[m
+[32m+[m[32m      abstract (>= 1.0.0)[m
+[32m+[m[32m    i18n (0.4.1)[m
+[32m+[m[32m    mail (2.2.6)[m
+[32m+[m[32m      activesupport (>= 2.3.6)[m
+[32m+[m[32m      mime-types[m
+[32m+[m[32m      treetop (>= 1.4.5)[m
+[32m+[m[32m    mime-types (1.16)[m
+[32m+[m[32m    nifty-generators (0.4.1)[m
+[32m+[m[32m    polyglot (0.3.1)[m
+[32m+[m[32m    populator (0.2.5)[m
+[32m+[m[32m    rack (1.2.1)[m
+[32m+[m[32m    rack-mount (0.6.13)[m
+[32m+[m[32m      rack (>= 1.0.0)[m
+[32m+[m[32m    rack-test (0.5.4)[m
+[32m+[m[32m      rack (>= 1.0)[m
+[32m+[m[32m    rails (3.0.0)[m
+[32m+[m[32m      actionmailer (= 3.0.0)[m
+[32m+[m[32m      actionpack (= 3.0.0)[m
+[32m+[m[32m      activerecord (= 3.0.0)[m
+[32m+[m[32m      activeresource (= 3.0.0)[m
+[32m+[m[32m      activesupport (= 3.0.0)[m
+[32m+[m[32m      bundler (~> 1.0.0)[m
+[32m+[m[32m      railties (= 3.0.0)[m
+[32m+[m[32m    railties (3.0.0)[m
+[32m+[m[32m      actionpack (= 3.0.0)[m
+[32m+[m[32m      activesupport (= 3.0.0)[m
+[32m+[m[32m      rake (>= 0.8.4)[m
+[32m+[m[32m      thor (~> 0.14.0)[m
+[32m+[m[32m    rake (0.8.7)[m
+[32m+[m[32m    sqlite3-ruby (1.3.1-x86-mingw32)[m
+[32m+[m[32m    thor (0.14.0)[m
+[32m+[m[32m    treetop (1.4.8)[m
+[32m+[m[32m      polyglot (>= 0.3.1)[m
+[32m+[m[32m    tzinfo (0.3.23)[m
+[32m+[m[32m    warden (0.10.7)[m
+[32m+[m[32m      rack (>= 1.0.0)[m
+[32m+[m[32m    will_paginate (3.0.pre2)[m
+[32m+[m
+[32m+[m[32mPLATFORMS[m
+[32m+[m[32m  x86-mingw32[m
+[32m+[m
+[32m+[m[32mDEPENDENCIES[m
+[32m+[m[32m  acl9[m
+[32m+[m[32m  cancan[m
+[32m+[m[32m  devise[m
+[32m+[m[32m  nifty-generators[m
+[32m+[m[32m  populator[m
+[32m+[m[32m  rails (= 3.0.0)[m
+[32m+[m[32m  sqlite3-ruby[m
+[32m+[m[32m  will_paginate (= 3.0.pre2)[m
+[1mdiff --git a/Gemfile~ b/Gemfile~[m
+[1mnew file mode 100644[m
+[1mindex 0000000..288e7c4[m
+[1m--- /dev/null[m
+[1m+++ b/Gemfile~[m
+[36m@@ -0,0 +1,35 @@[m
+[32m+[m[32msource 'http://rubygems.org'[m
+[32m+[m
+[32m+[m[32mgem 'rails', '3.0.0'[m
+[32m+[m
+[32m+[m[32m# Bundle edge Rails instead:[m
+[32m+[m[32m# gem 'rails', :git => 'git://github.com/rails/rails.git'[m
+[32m+[m
+[32m+[m[32mgem 'sqlite3-ruby', :require => 'sqlite3'[m
+[32m+[m[32mgem 'populator'[m
+[32m+[m[32mgem "nifty-generators"[m
+[32m+[m[32mgem "acl9"[m
+[32m+[m[32mgem 'devise'[m
+[32m+[m
+[32m+[m[32m# Use unicorn as the web server[m
+[32m+[m[32m# gem 'unicorn'[m
+[32m+[m
+[32m+[m[32m# Deploy with Capistrano[m
+[32m+[m[32m# gem 'capistrano'[m
+[32m+[m
+[32m+[m[32m# To use debugger[m
+[32m+[m[32m# gem 'ruby-debug'[m
+[32m+[m
+[32m+[m[32m# Bundle the extra gems:[m
+[32m+[m[32m# gem 'bj'[m
+[32m+[m[32m# gem 'nokogiri'[m
+[32m+[m[32m# gem 'sqlite3-ruby', :require => 'sqlite3'[m
+[32m+[m[32m# gem 'aws-s3', :require => 'aws/s3'[m
+[32m+[m
+[32m+[m[32m# Bundle gems for the local environment. Make sure to[m
+[32m+[m[32m# put test-only gems in this group so their generators[m
+[32m+[m[32m# and rake tasks are available in development mode:[m
+[32m+[m[32m# group :development, :test do[m
+[32m+[m[32m#   gem 'webrat'[m
+[32m+[m[32m# end[m
+[32m+[m
+[1mdiff --git a/README b/README[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6966fe9[m
+[1m--- /dev/null[m
+[1m+++ b/README[m
+[36m@@ -0,0 +1,256 @@[m
+[32m+[m[32m== Welcome to Rails[m
+[32m+[m
+[32m+[m[32mRails is a web-application framework that includes everything needed to create[m
+[32m+[m[32mdatabase-backed web applications according to the Model-View-Control pattern.[m
+[32m+[m
+[32m+[m[32mThis pattern splits the view (also called the presentation) into "dumb"[m
+[32m+[m[32mtemplates that are primarily responsible for inserting pre-built data in between[m
+[32m+[m[32mHTML tags. The model contains the "smart" domain objects (such as Account,[m
+[32m+[m[32mProduct, Person, Post) that holds all the business logic and knows how to[m
+[32m+[m[32mpersist themselves to a database. The controller handles the incoming requests[m
+[32m+[m[32m(such as Save New Account, Update Product, Show Post) by manipulating the model[m
+[32m+[m[32mand directing data to the view.[m
+[32m+[m
+[32m+[m[32mIn Rails, the model is handled by what's called an object-relational mapping[m
+[32m+[m[32mlayer entitled Active Record. This layer allows you to present the data from[m
+[32m+[m[32mdatabase rows as objects and embellish these data objects with business logic[m
+[32m+[m[32mmethods. You can read more about Active Record in[m
+[32m+[m[32mlink:files/vendor/rails/activerecord/README.html.[m
+[32m+[m
+[32m+[m[32mThe controller and view are handled by the Action Pack, which handles both[m
+[32m+[m[32mlayers by its two parts: Action View and Action Controller. These two layers[m
+[32m+[m[32mare bundled in a single package due to their heavy interdependence. This is[m
+[32m+[m[32munlike the relationship between the Active Record and Action Pack that is much[m
+[32m+[m[32mmore separate. Each of these packages can be used independently outside of[m
+[32m+[m[32mRails. You can read more about Action Pack in[m
+[32m+[m[32mlink:files/vendor/rails/actionpack/README.html.[m
+[32m+[m
+[32m+[m
+[32m+[m[32m== Getting Started[m
+[32m+[m
+[32m+[m[32m1. At the command prompt, create a new Rails application:[m
+[32m+[m[32m       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)[m
+[32m+[m
+[32m+[m[32m2. Change directory to <tt>myapp</tt> and start the web server:[m
+[32m+[m[32m       <tt>cd myapp; rails server</tt> (run with --help for options)[m
+[32m+[m
+[32m+[m[32m3. Go to http://localhost:3000/ and you'll see:[m
+[32m+[m[32m       "Welcome aboard: You're riding Ruby on Rails!"[m
+[32m+[m
+[32m+[m[32m4. Follow the guidelines to start developing your application. You can find[m
+[32m+[m[32mthe following resources handy:[m
+[32m+[m
+[32m+[m[32m* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html[m
+[32m+[m[32m* Ruby on Rails Tutorial Book: http://www.railstutorial.org/[m
+[32m+[m
+[32m+[m
+[32m+[m[32m== Debugging Rails[m
+[32m+[m
+[32m+[m[32mSometimes your application goes wrong. Fortunately there are a lot of tools that[m
+[32m+[m[32mwill help you debug it and get it back on the rails.[m
+[32m+[m
+[32m+[m[32mFirst area to check is the application log files. Have "tail -f" commands[m
+[32m+[m[32mrunning on the server.log and development.log. Rails will automatically display[m
+[32m+[m[32mdebugging and runtime information to these files. Debugging info will also be[m
+[32m+[m[32mshown in the browser on requests from 127.0.0.1.[m
+[32m+[m
+[32m+[m[32mYou can also log your own messages directly into the log file from your code[m
+[32m+[m[32musing the Ruby logger class from inside your controllers. Example:[m
+[32m+[m
+[32m+[m[32m  class WeblogController < ActionController::Base[m
+[32m+[m[32m    def destroy[m
+[32m+[m[32m      @weblog = Weblog.find(params[:id])[m
+[32m+[m[32m      @weblog.destroy[m
+[32m+[m[32m      logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32mThe result will be a message in your log file along the lines of:[m
+[32m+[m
+[32m+[m[32m  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1![m
+[32m+[m
+[32m+[m[32mMore information on how to use the logger is at http://www.ruby-doc.org/core/[m
+[32m+[m
+[32m+[m[32mAlso, Ruby documentation can be found at http://www.ruby-lang.org/. There are[m
+[32m+[m[32mseveral books available online as well:[m
+[32m+[m
+[32m+[m[32m* Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)[m
+[32m+[m[32m* Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)[m
+[32m+[m
+[32m+[m[32mThese two books will bring you up to speed on the Ruby language and also on[m
+[32m+[m[32mprogramming in general.[m
+[32m+[m
+[32m+[m
+[32m+[m[32m== Debugger[m
+[32m+[m
+[32m+[m[32mDebugger support is available through the debugger command when you start your[m
+[32m+[m[32mMongrel or WEBrick server with --debugger. This means that you can break out of[m
+[32m+[m[32mexecution at any point in the code, investigate and change the model, and then,[m
+[32m+[m[32mresume execution! You need to install ruby-debug to run the server in debugging[m
+[32m+[m[32mmode. With gems, use <tt>sudo gem install ruby-debug</tt>. Example:[m
+[32m+[m
+[32m+[m[32m  class WeblogController < ActionController::Base[m
+[32m+[m[32m    def index[m
+[32m+[m[32m      @posts = Post.find(:all)[m
+[32m+[m[32m      debugger[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32mSo the controller will accept the action, run the first line, then present you[m
+[32m+[m[32mwith a IRB prompt in the server window. Here you can do things like:[m
+[32m+[m
+[32m+[m[32m  >> @posts.inspect[m
+[32m+[m[32m  => "[#<Post:0x14a6be8[m
+[32m+[m[32m          @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>,[m
+[32m+[m[32m       #<Post:0x14a6620[m
+[32m+[m[32m          @attributes={"title"=>"Rails", "body"=>"Only ten..", "id"=>"2"}>]"[m
+[32m+[m[32m  >> @posts.first.title = "hello from a debugger"[m
+[32m+[m[32m  => "hello from a debugger"[m
+[32m+[m
+[32m+[m[32m...and even better, you can examine how your runtime objects actually work:[m
+[32m+[m
+[32m+[m[32m  >> f = @posts.first[m
+[32m+[m[32m  => #<Post:0x13630c4 @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>[m
+[32m+[m[32m  >> f.[m
+[32m+[m[32m  Display all 152 possibilities? (y or n)[m
+[32m+[m
+[32m+[m[32mFinally, when you're ready to resume execution, you can enter "cont".[m
+[32m+[m
+[32m+[m
+[32m+[m[32m== Console[m
+[32m+[m
+[32m+[m[32mThe console is a Ruby shell, which allows you to interact with your[m
+[32m+[m[32mapplication's domain model. Here you'll have all parts of the application[m
+[32m+[m[32mconfigured, just like it is when the application is running. You can inspect[m
+[32m+[m[32mdomain models, change values, and save to the database. Starting the script[m
+[32m+[m[32mwithout arguments will launch it in the development environment.[m
+[32m+[m
+[32m+[m[32mTo start the console, run <tt>rails console</tt> from the application[m
+[32m+[m[32mdirectory.[m
+[32m+[m
+[32m+[m[32mOptions:[m
+[32m+[m
+[32m+[m[32m* Passing the <tt>-s, --sandbox</tt> argument will rollback any modifications[m
+[32m+[m[32m  made to the database.[m
+[32m+[m[32m* Passing an environment name as an argument will load the corresponding[m
+[32m+[m[32m  environment. Example: <tt>rails console production</tt>.[m
+[32m+[m
+[32m+[m[32mTo reload your controllers and models after launching the console run[m
+[32m+[m[32m<tt>reload!</tt>[m
+[32m+[m
+[32m+[m[32mMore information about irb can be found at:[m
+[32m+[m[32mlink:http://www.rubycentral.com/pickaxe/irb.html[m
+[32m+[m
+[32m+[m
+[32m+[m[32m== dbconsole[m
+[32m+[m
+[32m+[m[32mYou can go to the command line of your database directly through <tt>rails[m
+[32m+[m[32mdbconsole</tt>. You would be connected to the database with the credentials[m
+[32m+[m[32mdefined in database.yml. Starting the script without arguments will connect you[m
+[32m+[m[32mto the development database. Passing an argument will connect you to a different[m
+[32m+[m[32mdatabase, like <tt>rails dbconsole production</tt>. Currently works for MySQL,[m
+[32m+[m[32mPostgreSQL and SQLite 3.[m
+[32m+[m
+[32m+[m[32m== Description of Contents[m
+[32m+[m
+[32m+[m[32mThe default directory structure of a generated Ruby on Rails application:[m
+[32m+[m
+[32m+[m[32m  |-- app[m
+[32m+[m[32m  |   |-- controllers[m
+[32m+[m[32m  |   |-- helpers[m
+[32m+[m[32m  |   |-- models[m
+[32m+[m[32m  |   `-- views[m
+[32m+[m[32m  |       `-- layouts[m
+[32m+[m[32m  |-- config[m
+[32m+[m[32m  |   |-- environments[m
+[32m+[m[32m  |   |-- initializers[m
+[32m+[m[32m  |   `-- locales[m
+[32m+[m[32m  |-- db[m
+[32m+[m[32m  |-- doc[m
+[32m+[m[32m  |-- lib[m
+[32m+[m[32m  |   `-- tasks[m
+[32m+[m[32m  |-- log[m
+[32m+[m[32m  |-- public[m
+[32m+[m[32m  |   |-- images[m
+[32m+[m[32m  |   |-- javascripts[m
+[32m+[m[32m  |   `-- stylesheets[m
+[32m+[m[32m  |-- script[m
+[32m+[m[32m  |   `-- performance[m
+[32m+[m[32m  |-- test[m
+[32m+[m[32m  |   |-- fixtures[m
+[32m+[m[32m  |   |-- functional[m
+[32m+[m[32m  |   |-- integration[m
+[32m+[m[32m  |   |-- performance[m
+[32m+[m[32m  |   `-- unit[m
+[32m+[m[32m  |-- tmp[m
+[32m+[m[32m  |   |-- cache[m
+[32m+[m[32m  |   |-- pids[m
+[32m+[m[32m  |   |-- sessions[m
+[32m+[m[32m  |   `-- sockets[m
+[32m+[m[32m  `-- vendor[m
+[32m+[m[32m      `-- plugins[m
+[32m+[m
+[32m+[m[32mapp[m
+[32m+[m[32m  Holds all the code that's specific to this particular application.[m
+[32m+[m
+[32m+[m[32mapp/controllers[m
+[32m+[m[32m  Holds controllers that should be named like weblogs_controller.rb for[m
+[32m+[m[32m  automated URL mapping. All controllers should descend from[m
+[32m+[m[32m  ApplicationController which itself descends from ActionController::Base.[m
+[32m+[m
+[32m+[m[32mapp/models[m
+[32m+[m[32m  Holds models that should be named like post.rb. Models descend from[m
+[32m+[m[32m  ActiveRecord::Base by default.[m
+[32m+[m
+[32m+[m[32mapp/views[m
+[32m+[m[32m  Holds the template files for the view that should be named like[m
+[32m+[m[32m  weblogs/index.html.erb for the WeblogsController#index action. All views use[m
+[32m+[m[32m  eRuby syntax by default.[m
+[32m+[m
+[32m+[m[32mapp/views/layouts[m
+[32m+[m[32m  Holds the template files for layouts to be used with views. This models the[m
+[32m+[m[32m  common header/footer method of wrapping views. In your views, define a layout[m
+[32m+[m[32m  using the <tt>layout :default</tt> and create a file named default.html.erb.[m
+[32m+[m[32m  Inside default.html.erb, call <% yield %> to render the view using this[m
+[32m+[m[32m  layout.[m
+[32m+[m
+[32m+[m[32mapp/helpers[m
+[32m+[m[32m  Holds view helpers that should be named like weblogs_helper.rb. These are[m
+[32m+[m[32m  generated for you automatically when using generators for controllers.[m
+[32m+[m[32m  Helpers can be used to wrap functionality for your views into methods.[m
+[32m+[m
+[32m+[m[32mconfig[m
+[32m+[m[32m  Configuration files for the Rails environment, the routing map, the database,[m
+[32m+[m[32m  and other dependencies.[m
+[32m+[m
+[32m+[m[32mdb[m
+[32m+[m[32m  Contains the database schema in schema.rb. db/migrate contains all the[m
+[32m+[m[32m  sequence of Migrations for your schema.[m
+[32m+[m
+[32m+[m[32mdoc[m
+[32m+[m[32m  This directory is where your application documentation will be stored when[m
+[32m+[m[32m  generated using <tt>rake doc:app</tt>[m
+[32m+[m
+[32m+[m[32mlib[m
+[32m+[m[32m  Application specific libraries. Basically, any kind of custom code that[m
+[32m+[m[32m  doesn't belong under controllers, models, or helpers. This directory is in[m
+[32m+[m[32m  the load path.[m
+[32m+[m
+[32m+[m[32mpublic[m
+[32m+[m[32m  The directory available for the web server. Contains subdirectories for[m
+[32m+[m[32m  images, stylesheets, and javascripts. Also contains the dispatchers and the[m
+[32m+[m[32m  default HTML files. This should be set as the DOCUMENT_ROOT of your web[m
+[32m+[m[32m  server.[m
+[32m+[m
+[32m+[m[32mscript[m
+[32m+[m[32m  Helper scripts for automation and generation.[m
+[32m+[m
+[32m+[m[32mtest[m
+[32m+[m[32m  Unit and functional tests along with fixtures. When using the rails generate[m
+[32m+[m[32m  command, template test files will be generated for you and placed in this[m
+[32m+[m[32m  directory.[m
+[32m+[m
+[32m+[m[32mvendor[m
+[32m+[m[32m  External libraries that the application depends on. Also includes the plugins[m
+[32m+[m[32m  subdirectory. If the app has frozen rails, those gems also go here, under[m
+[32m+[m[32m  vendor/rails/. This directory is in the load path.[m
+[1mdiff --git a/Rakefile b/Rakefile[m
+[1mnew file mode 100644[m
+[1mindex 0000000..68dfd1d[m
+[1m--- /dev/null[m
+[1m+++ b/Rakefile[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32m# Add your own tasks in files placed in lib/tasks ending in .rake,[m
+[32m+[m[32m# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.[m
+[32m+[m
+[32m+[m[32mrequire File.expand_path('../config/application', __FILE__)[m
+[32m+[m[32mrequire 'rake'[m
+[32m+[m
+[32m+[m[32mGestionMagasin::Application.load_tasks[m
+[1mdiff --git a/app/controllers/application_controller.rb b/app/controllers/application_controller.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..19cf78e[m
+[1m--- /dev/null[m
+[1m+++ b/app/controllers/application_controller.rb[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mclass ApplicationController < ActionController::Base[m
+[32m+[m[32m  protect_from_forgery[m
+[32m+[m[32m  rescue_from CanCan::AccessDenied do |exception|[m
+[32m+[m[41m  [m	[32mflash[:error] = "Access denied."[m
+[32m+[m[41m  [m	[32mredirect_to new_user_session_path[m
+[32m+[m[32m  end[m
+[32m+[m[41m  [m
+[32m+[m[32mend[m
+[1mdiff --git a/app/controllers/produits_controller.rb b/app/controllers/produits_controller.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..46db751[m
+[1m--- /dev/null[m
+[1m+++ b/app/controllers/produits_controller.rb[m
+[36m@@ -0,0 +1,74 @@[m
+[32m+[m[32mclass ProduitsController < ApplicationController[m
+[32m+[m[32m  load_and_authorize_resource[m
+[32m+[m[32m  before_filter :find_produit, :only => [:show, :edit, :update, :destroy][m
+[32m+[m[32m  # GET /produits[m
+[32m+[m[32m  # GET /produits.xml[m
+[32m+[m[32m  def index[m
+[32m+[m[32m    @produits =  Produit.search(params[:search]).paginate :page => params[:page],:per_page => 7[m
+[32m+[m[32m    @produit = Produit.new[m
+[32m+[m[32m    respond_to do |format|[m
+[32m+[m[32m      format.html # index.html.erb[m
+[32m+[m[32m      format.xml  { render :xml => Produit.all }[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  # GET /produits/1[m
+[32m+[m[32m  # GET /produits/1.xml[m
+[32m+[m[32m  def show[m
+[32m+[m[32m    respond_to do |format|[m
+[32m+[m[32m      format.html # show.html.erb[m
+[32m+[m[32m      format.xml  { render :xml => @produit }[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  # GET /produits/new[m
+[32m+[m[32m  # GET /produits/new.xml[m
+[32m+[m[32m  def new[m
+[32m+[m[32m    @produit = Produit.new[m
+[32m+[m
+[32m+[m[32m   # respond_to do |format|[m
+[32m+[m[32m  #    format.html # new.html.erb[m
+[32m+[m[32m  #    format.xml  { render :xml => @produit }[m
+[32m+[m[32m  #  end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  # GET /produits/1/edit[m
+[32m+[m[32m  def edit[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  # POST /produits[m
+[32m+[m[32m  # POST /produits.xml[m
+[32m+[m[32m  def create[m
+[32m+[m[32m    @produit = Produit.new(params[:produit])[m
+[32m+[m[32m      if @produit.save[m
+[32m+[m[32m        @produits = Produit.tout.paginate :page => params[:page],:per_page => 7[m[41m [m
+[32m+[m[32m        flash[:notice] = 'Produit was successfully created.'[m
+[32m+[m[32m      end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  # PUT /produits/1[m
+[32m+[m[32m  # PUT /produits/1.xml[m
+[32m+[m[32m  def update[m
+[32m+[m[32m    @produit.update_attributes(params[:produit])[m
+[32m+[m[32m    @produits = Produit.tout.paginate :page => params[:page],:per_page => 7[m[41m [m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  # DELETE /produits/1[m
+[32m+[m[32m  # DELETE /produits/1.xml[m
+[32m+[m[32m  def destroy[m
+[32m+[m[32m    @produit.destroy[m
+[32m+[m[32m    flash[:notice] = "Prouduit efface."[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def csv_import[m
+[32m+[m[32m    n= Produit.create_by_csv params[:dump][:file][m
+[32m+[m[32m    flash.now[:message]="CSV Import Successfuly ,#{n} new records added to data base"[m
+[32m+[m[32m    @produit = Produit.new[m
+[32m+[m[32m    @produits = Produit.tout.paginate :page => params[:page],:per_page => 7[m[41m [m
+[32m+[m[32m    render :action => "index"[m
+[32m+[m[32m  end[m
+[32m+[m[32m  protected[m[41m    [m
+[32m+[m[32m    def find_produit[m
+[32m+[m[32m      @produit = Produit.find(params[:id])[m
+[32m+[m[32m    end[m
+[32m+[m[32mend[m
+[1mdiff --git a/app/helpers/application_helper.rb b/app/helpers/application_helper.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..de6be79[m
+[1m--- /dev/null[m
+[1m+++ b/app/helpers/application_helper.rb[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mmodule ApplicationHelper[m
+[32m+[m[32mend[m
+[1mdiff --git a/app/helpers/error_messages_helper.rb b/app/helpers/error_messages_helper.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..586e4aa[m
+[1m--- /dev/null[m
+[1m+++ b/app/helpers/error_messages_helper.rb[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32mmodule ErrorMessagesHelper[m
+[32m+[m[32m  # Render error messages for the given objects. The :message and :header_message options are allowed.[m
+[32m+[m[32m  def error_messages_for(*objects)[m
+[32m+[m[32m    options = objects.extract_options![m
+[32m+[m[32m    options[:header_message] ||= "Invalid Fields"[m
+[32m+[m[32m    options[:message] ||= "Correct the following errors and try again."[m
+[32m+[m[32m    messages = objects.compact.map { |o| o.errors.full_messages }.flatten[m
+[32m+[m[32m    unless messages.empty?[m
+[32m+[m[32m      content_tag(:div, :class => "error_messages") do[m
+[32m+[m[32m        list_items = messages.map { |msg| content_tag(:li, msg) }[m
+[32m+[m[32m        content_tag(:h2, options[:header_message]) + content_tag(:p, options[:message]) + content_tag(:ul, list_items.join.html_safe)[m
+[32m+[m[32m      end[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  module FormBuilderAdditions[m
+[32m+[m[32m    def error_messages(options = {})[m
+[32m+[m[32m      @template.error_messages_for(@object, options)[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+[32m+[m[32mend[m
+[32m+[m
+[32m+[m[32mActionView::Helpers::FormBuilder.send(:include, ErrorMessagesHelper::FormBuilderAdditions)[m
+[1mdiff --git a/app/helpers/layout_helper.rb b/app/helpers/layout_helper.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e2ee5ef[m
+[1m--- /dev/null[m
+[1m+++ b/app/helpers/layout_helper.rb[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m# These helper methods can be called in your template to set variables to be used in the layout[m
+[32m+[m[32m# This module should be included in all views globally,[m
+[32m+[m[32m# to do so you may need to add this line to your ApplicationController[m
+[32m+[m[32m#   helper :layout[m
+[32m+[m[32mmodule LayoutHelper[m
+[32m+[m[32m  def title(page_title, show_title = true)[m
+[32m+[m[32m    content_for(:title) { page_title.to_s }[m
+[32m+[m[32m    @show_title = show_title[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def show_title?[m
+[32m+[m[32m    @show_title[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def stylesheet(*args)[m
+[32m+[m[32m    content_for(:head) { stylesheet_link_tag(*args) }[m
+[32m+[m[32m  end[m
+[32m+[m
+[32m+[m[32m  def javascript(*args)[m
+[32m+[m[32m    content_for(:head) { javascript_include_tag(*args) }[m
+[32m+[m[32m  end[m
+[32m+[m[32mend[m
+[1mdiff --git a/app/helpers/produits_helper.rb b/app/helpers/produits_helper.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5838aae[m
+[1m--- /dev/null[m
+[1m+++ b/app/helpers/produits_helper.rb[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mmodule ProduitsHelper[m
+[32m+[m[32mend[m
+[1mdiff --git a/app/models/.user.rb.swp b/app/models/.user.rb.swp[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5b27fc1[m
+Binary files /dev/null and b/app/models/.user.rb.swp differ
+[1mdiff --git a/app/models/ability.rb b/app/models/ability.rb[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ca5d316[m
+[1m--- /dev/null[m
+[1m+++ b/app/models/ability.rb[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mclass Ability[m
+[32m+[m[32m  include CanCan::Ability[m
+[32m+[m[41m  [m
+[32m+[m[32m  def initialize(user)[m
+[32m+[m[32m    user ||= User.new # guest user[
