@@ -1,6 +1,16 @@
+GIT
+  remote: git://github.com/sandal/prawn
+  revision: 89ba0ebf7ac3705756330a25ab4c88e4c71e36d8
+  tag: 0.10.2
+  submodules: true
+  specs:
+    prawn (0.10.2)
+      pdf-reader (>= 0.8.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.0)
     abstract (1.0.0)
     acl9 (0.12.0)
     actionmailer (3.0.0)
@@ -46,8 +56,13 @@ GEM
       treetop (>= 1.4.5)
     mime-types (1.16)
     nifty-generators (0.4.1)
+    pdf-reader (0.9.0)
+      Ascii85 (>= 0.9)
     polyglot (0.3.1)
     populator (0.2.5)
+    prawnto (0.0.4)
+      prawn
+      rails (>= 2.1)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -85,6 +100,8 @@ DEPENDENCIES
   devise
   nifty-generators
   populator
+  prawn!
+  prawnto
   rails (= 3.0.0)
   sqlite3-ruby
   will_paginate (= 3.0.pre2)

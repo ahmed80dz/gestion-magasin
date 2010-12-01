@@ -4,6 +4,7 @@ GestionMagasin::Application.routes.draw do
   resources :produits
   match "csv" => "produits#csv_import"
   root :to => "produits#index"
+  match "liste_produits" => "produits#liste_produits"
 
 
   # The priority is based upon order of creation:

@@ -1,4 +1,6 @@
 class Produit < ActiveRecord::Base
+  has_many :factures , :through => :ventes
+  has_many :ventes
   validates_presence_of :nom
   scope :tout,:order => "created_at DESC"
   require 'csv'
@@ -6,11 +8,7 @@ class Produit < ActiveRecord::Base
   #   @posts = Produit.paginate :page =>page, :per_page => 7, :order => 'created_at DESC'
   # end
   def self.search(search)
-    if search
-      where('nom LIKE ?', "%#{search}%").order("created_at DESC")
-    else
-      tout
-    end
+    tout.where('nom LIKE ?', "%#{search}%")
   end
   def self.create_by_csv(file)
     n=0

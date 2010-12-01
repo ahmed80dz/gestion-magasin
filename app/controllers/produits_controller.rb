@@ -31,6 +31,18 @@ class ProduitsController < ApplicationController
   #    format.xml  { render :xml => @produit }
   #  end
   end
+  def liste_produits
+   @title="Liste Des Produits"
+   @produits = Produit.tout
+   prawnto :prawn => {
+      :page_size => 'A4',
+      :left_margin => 50,
+      :right_margin => 50,
+      :top_margin => 24,
+      :bottom_margin => 24}, 
+      :filename=>"#{@title.gsub(' ','_')}.pdf" 
+   render :layout=>false
+  end
 
   # GET /produits/1/edit
   def edit
