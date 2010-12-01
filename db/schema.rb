@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101129215651) do
+ActiveRecord::Schema.define(:version => 20101201171906) do
 
   create_table "achats", :force => true do |t|
     t.integer  "id_bon_achat"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20101129215651) do
     t.datetime "updated_at"
     t.integer  "client_id"
   end
+
+  add_index "factures", ["client_id"], :name => "index_factures_on_client_id"
 
   create_table "fournisseurs", :force => true do |t|
     t.integer  "code_fournisseur"
@@ -96,5 +98,8 @@ ActiveRecord::Schema.define(:version => 20101129215651) do
     t.integer  "facture_id"
     t.integer  "produit_id"
   end
+
+  add_index "ventes", ["facture_id"], :name => "index_ventes_on_facture_id"
+  add_index "ventes", ["produit_id"], :name => "index_ventes_on_produit_id"
 
 end
