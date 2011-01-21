@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   attr_accessible :login, :role, :password, :password_confirmation, :remember_me
   def role?(r)
-  	r == ROLE[role]
+  	r == ROLE[role-1]
   end
 end

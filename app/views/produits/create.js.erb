@@ -12,7 +12,7 @@
   $("erreur_produit").hide(300);
 
   /*Update the html of the div flash_notice with the new one*/
-  $("flash").update("<%= escape_javascript(flash[:notice])%>");
+  $("flash").update("<div id="flash_notice"><%= escape_javascript(flash[:notice])%></div>");
 
   /*Show the flash_notice div*/
   $("flash").show(300);
@@ -21,6 +21,6 @@
   /*$(":input:not(input[type=submit])").val("")*/
 
   /*Replace the html of the div post_lists with the updated new one*/
-  $("produit_new").insert(  {after:"<%= escape_javascript( render(:partial => "produit",:locals => { :produit => @produit}))%>"});
+  $("produit_new").insert(  {after:"<%= escape_javascript( render(:partial => "produit",:locals => { :produit => @produit, :div  => true}))%>"});
 <% end -%>
 

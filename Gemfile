@@ -12,8 +12,8 @@ gem "acl9"
 gem 'devise'
 gem "cancan"
 gem 'will_paginate', '3.0.pre2'
-gem 'prawnto'
-gem 'prawn', :git => "git://github.com/sandal/prawn", :tag => '0.10.2', :submodules => true
+#gem 'prawnto'
+#gem 'prawn', :git => "git://github.com/sandal/prawn", :tag => '0.10.2', :submodules => true
 # Use unicorn as the web server
 # gem 'unicorn'
 
